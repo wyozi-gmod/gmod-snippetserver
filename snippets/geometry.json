@@ -3,6 +3,6 @@
         "title": "Loop circle points",
         "author": "Wyozi",
         "desc": "Loop through points in a circle",
-        "code": "local x = ${1:100}\nlocal y = ${2:100}\nlocal points = ${3:16}\nlocal radius = ${4:50}\nlocal rad_per_point = (math.pi*2) / points\nfor p=1, points do\n\tlocal px = x + math.cos(rad_per_point*p) * radius\n\tlocal py = y + math.sin(rad_per_point*p) * radius\n\t-- Use px and py here\nend"
+        "code": "local x = ${1:100}\nlocal y = ${2:100}\nlocal points = ${3:16}\nlocal radius = ${4:50}\nlocal rad_per_point = (math.pi*2) / points\nfor p=1, points do\n\tlocal px = x + math.cos(rad_per_point*p) * radius\n\tlocal py = y + math.sin(rad_per_point*p) * radius\n\t${5:-- code}\nend"
     }
 ]
