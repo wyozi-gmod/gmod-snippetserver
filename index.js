@@ -14,6 +14,7 @@ snippetDb.init();
 var snippetMap = {}; // ID->Snippet map
 var allSnippetMeta = []; // Metadata of all snippets
 
+// We don't want full text engine to index code
 var snippetFilter = function(key, val) {
     if (key == 'code') {
         return false;
