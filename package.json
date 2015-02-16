@@ -1,25 +1,21 @@
 {
-  "name": "node-js-getting-started",
+  "name": "gmod-snippetserver",
   "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
+  "description": "A Heroku application to host gmod snippets",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+	"start": "node index.js"
   },
   "dependencies": {
-    "express": "~4.9.x"
+	"express": "~4.9.x"
   },
   "engines": {
-    "node": "0.10.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+	"node": "0.10.x"
   },
   "keywords": [
-    "node",
-    "heroku",
-    "express"
+	"node",
+	"heroku",
+	"express"
   ],
   "license": "MIT"
 }
