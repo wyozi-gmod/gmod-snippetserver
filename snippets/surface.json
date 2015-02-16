@@ -1,0 +1,8 @@
+[
+	{
+		"title": "Draw text",
+		"author": "Wyozi",
+		"desc": "Draw 2D text",
+		"code": "draw.SimpleText(\"${1:text}\", \"${2:DermaLarge}\", ${3:0}, ${4:0})"
+	},
+]

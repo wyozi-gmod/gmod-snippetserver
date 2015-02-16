@@ -2,13 +2,13 @@
 	{
 		"title": "Read file",
 		"author": "Wyozi",
-		"desc": "Reads file 'file.txt' from the data folder",
-		"code": "file.Read(\"file.txt\", \"DATA\")"
+		"desc": "Read a file in the data folder",
+		"code": "file.Read(\"${1:file.txt}\", \"DATA\")"
 	},
 	{
 		"title": "Write file",
 		"author": "Wyozi",
-		"desc": "Writes 'Hello' to 'file.txt' in the data folder",
-		"code": "file.Write(\"file.txt\", \"Hello\")"
+		"desc": "Write text to a file in the data folder",
+		"code": "file.Write(\"${1:file.txt}\", \"${2:text}\")"
 	}
 ]
