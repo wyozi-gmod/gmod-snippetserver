@@ -11,21 +11,52 @@ var snippetDb = new db('snippets');
 snippetDb.init();
 
 // Load snippets
-var snippets = {};
+var snippetMap = {}; // ID->Snippet map
+var allSnippetMeta = []; // Metadata of all snippets
+
+var snippetFilter = function(key, val) {
+    if (key == 'code') {
+        return false;
+    }
+
+    return true;
+}
 
 var snippetFiles = fs.readdirSync("./snippets");
 snippetFiles.forEach(function(fil) {
     var snippets = JSON.parse(fs.readFileSync("./snippets/" + fil));
     snippets.forEach(function(snip) {
-        var id = snippetDb.add(snip);
+        var id = snippetDb.add(snip, snippetFilter);
 
         snip.id = id;
-        snippets[id] = snip;
+        snippetMap[id] = snip;
+
+        allSnippetMeta.push({id: id, title: snip.title});
     });
 });
 
+app.get('/snippets/:snippet', function(request, response) {
+    var id = parseInt(request.param("snippet") || -1);
+    var snippet = snippetMap[id];
+    response.send(snippet);
+});
+
 app.get('/snippets', function(request, response) {
-    response.send(snippetDb.search(request.query.query));
+    var query = request.query.query;
+    if (query) {
+        var res = snippetDb.search(query).map(function(searchRes) {
+            return {
+                id: searchRes.id,
+                title: searchRes.title,
+                desc: searchRes.desc
+            };
+        });
+
+        response.send(res);
+    }
+    else {
+        response.send(allSnippetMeta);
+    }
 });
 
 app.listen(app.get('port'), function() {
