@@ -3,6 +3,6 @@
 		"title": "Chat command",
 		"author": "Wyozi",
 		"desc": "Add a hook to detect specific chat command",
-		"code": "hook.Add(\"PlayerSay\", \"PlayerSayExample\", function(ply, text, team)\n\tif (string.sub(text, 1, 4) == \"/all\") then\n\t\treturn \"[Global] \" .. string.sub(text, 5)\nend\nend)"
+		"code": "hook.Add(\"PlayerSay\", \"PlayerSayExample\", function(ply, text, team)\n\tif (string.sub(text, 1, 4) == \"/all\") then\n\t\treturn \"[Global] \" .. string.sub(text, 5)\n\tend\nend)"
 	}
 ]
